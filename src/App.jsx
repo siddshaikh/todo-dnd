@@ -11,6 +11,7 @@ const App = () => {
   useEffect(() => {
     setTasks(JSON.parse(localStorage.getItem("Task")));
   }, []);
+  
   return (
     <DndProvider backend={HTML5Backend}>
       <Toaster />
