@@ -10,7 +10,7 @@ const CreateTasks = ({ tasks, setTasks }) => {
   });
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (task.name.length < 3)
+    if (task?.name.length < 3)
       return tost.error("Task Must Have A Three Characters");
     setTasks((prev) => {
       const list = [...(prev || []), task];
@@ -36,7 +36,7 @@ const CreateTasks = ({ tasks, setTasks }) => {
         onChange={(e) =>
           setTask({ ...task, id: uuidv4(), name: e.target.value })
         }
-        value={task.name}
+        value={task?.name}
       />
       <button className="h-12 bg-yellow-500 px-4 text-white rounded-md">
         Create Task

@@ -59,7 +59,7 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
   }
   const addItemToSection = (id) =>{
     setTasks((prev)=>{
-      const mTask = prev.map((t)=>{
+      const mTask = prev?.map((t)=>{
         if(t.id === id){
           return {...t , status : status}
         }
@@ -76,8 +76,8 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
     className={`w-64 ${isOver ? 'bg-slate-200' : ''} rounded-md`}>
       <Header text={text} bg={bg} count={tasksToMap.length} />
       {tasksToMap.length > 0 &&
-        tasksToMap.map((task) => (
-          <Task key={task.id} task={task} tasks={tasks} setTasks={setTasks} />
+        tasksToMap?.map((task) => (
+          <Task key={task?.id} task={task} tasks={tasks} setTasks={setTasks} />
         ))}
     </div>
   );
@@ -100,13 +100,13 @@ const Header = ({ text, bg, count }) => {
 const Task = ({ task, tasks, setTasks }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "Task",
-    item:{id:task.id},
+    item:{id:task?.id},
     collect: (moniter) => ({
       isDragging: !!moniter.isDragging(),
     }),
   }));
   const handleRemove = (id) => {
-    const fTasks = tasks.filter((t) => t.id !== id);
+    const fTasks = tasks?.filter((t) => t.id !== id);
     localStorage.setItem("Task", JSON.stringify(fTasks));
     setTasks(fTasks);
     toast("Task removed");
@@ -119,7 +119,7 @@ const Task = ({ task, tasks, setTasks }) => {
       <p>{task.name}</p>
       <button
         className="absolute  bottom-1 right-1 text-slate-400"
-        onClick={() => handleRemove(task.id)}
+        onClick={() => handleRemove(task?.id)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
