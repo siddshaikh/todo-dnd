@@ -8,7 +8,7 @@ const ListTasks = ({ tasks, setTasks }) => {
   const [closed, setClosed] = useState([]);
 
   useEffect(() => {
-    if (tasks && tasks.length > 0) {
+    if (tasks && tasks.length >= 0) {
       const ftodos = tasks.filter((task) => task.status === "todo");
       const finProgress = tasks.filter((task) => task.status === "inProgress");
       const fclosed = tasks.filter((task) => task.status === "closed");
