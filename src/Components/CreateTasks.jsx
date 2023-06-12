@@ -14,8 +14,7 @@ const CreateTasks = ({ tasks, setTasks }) => {
       return tost.error("Task Must Have A Three Characters");
     setTasks((prev) => {
       const list = [...(prev || []), task];
-
-      localStorage.setItem("Task", JSON.stringify(list));
+      localStorage.setItem("Task",JSON.stringify(list));
 
       return list;
     });
