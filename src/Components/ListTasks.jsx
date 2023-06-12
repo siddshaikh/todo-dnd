@@ -68,7 +68,7 @@ const Section = ({ status, tasks, setTasks, todos, inProgress, closed }) => {
         }
         return t
       })
-      localStorage.setItem('Task',mTask)
+      localStorage.setItem('Task',JSON.stringify(mTask))
       toast('Status Changed')
       return mTask
     })
