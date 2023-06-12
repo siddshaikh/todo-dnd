@@ -111,10 +111,11 @@ const Task = ({ task, tasks, setTasks }) => {
   }));
   const handleRemove = (id) => {
     const fTasks = tasks?.filter((t) => t.id !== id);
-    localStorage.setItem("Task", JSON.stringify(fTasks));
     setTasks(fTasks);
+    localStorage.setItem("Task", JSON.stringify(fTasks));
     toast("Task removed");
   };
+  
   return (
     <div
       ref={drag}
